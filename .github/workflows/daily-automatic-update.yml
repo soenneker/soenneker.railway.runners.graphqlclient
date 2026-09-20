@@ -1,0 +1,34 @@
+name: Daily automatic update
+
+on:
+  schedule:
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restore tools
+        run: dotnet tool restore
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Run updater
+        run: dotnet run --project src/Soenneker.Railway.Runners.GraphQlClient/Soenneker.Railway.Runners.GraphQlClient.csproj
+        env:
+          ASPNETCORE_ENVIRONMENT: Production
+          GH__USERNAME: ${{ secrets.GH__USERNAME }}
+          GIT__EMAIL: ${{ secrets.GIT__EMAIL }}
+          GIT__NAME: ${{ secrets.GIT__NAME }}
+          GH__TOKEN: ${{ secrets.GH__TOKEN }}
+          GIT__TOKEN: ${{ secrets.GIT__TOKEN }}

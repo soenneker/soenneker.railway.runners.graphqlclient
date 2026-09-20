@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/.github/">
+    <File Path=".github/renovate.json" />
+  </Folder>
+  <Folder Name="/.github/workflows/">
+    <File Path=".github/workflows/build-and-test.yml" />
+    <File Path=".github/workflows/codeql.yml" />
+    <File Path=".github/workflows/daily-automatic-update.yml" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Soenneker.Railway.Runners.GraphQlClient/Soenneker.Railway.Runners.GraphQlClient.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/Soenneker.Railway.Runners.GraphQlClient.Tests/Soenneker.Railway.Runners.GraphQlClient.Tests.csproj" />
+  </Folder>
+</Solution>
