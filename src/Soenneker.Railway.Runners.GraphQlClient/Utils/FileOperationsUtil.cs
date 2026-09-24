@@ -1,3 +1,4 @@
+using Soenneker.Utils.File.Abstract;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Soenneker.GraphQL.Generator.Abstract;
@@ -20,7 +21,7 @@ namespace Soenneker.Railway.Runners.GraphQlClient.Utils;
 public sealed class FileOperationsUtil(
     ILogger<FileOperationsUtil> logger, IConfiguration configuration, IGitUtil gitUtil,
     IDotnetUtil dotnetUtil, IGraphQlGenerator generator,
-    IGraphQlSchemaDownloadUtil download, IGraphQlSchemaConversionUtil conversion) : IFileOperationsUtil
+    IGraphQlSchemaDownloadUtil download, IGraphQlSchemaConversionUtil conversion, IFileUtil fileUtil) : IFileOperationsUtil
 {
     public async ValueTask Process(CancellationToken cancellationToken = default)
     {
@@ -30,13 +31,13 @@ public sealed class FileOperationsUtil(
             : Path.GetFullPath(localDirectory);
         string projectDirectory = Path.Combine(repository, "src", Constants.Library);
         string project = Path.Combine(projectDirectory, Constants.Library + ".csproj");
-        if (!File.Exists(project))
+        if (!await fileUtil.Exists(project, cancellationToken))
             throw new FileNotFoundException("The Railway client project must exist before regeneration.", project);
 
         string? schemaPath = configuration["Railway:SchemaPath"];
         string sdl;
         if (!string.IsNullOrWhiteSpace(schemaPath))
-            sdl = await File.ReadAllTextAsync(Path.GetFullPath(schemaPath), cancellationToken);
+            sdl = await fileUtil.Read(Path.GetFullPath(schemaPath), cancellationToken: cancellationToken);
         else
         {
             string endpoint = configuration["Railway:ClientBaseUrl"] ?? "https://backboard.railway.com/graphql/v2";
@@ -76,10 +77,10 @@ public sealed class FileOperationsUtil(
             if (!path.StartsWith(generatedDirectory + Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase))
                 throw new InvalidOperationException("Generated file is outside the output directory.");
             Directory.CreateDirectory(Path.GetDirectoryName(path)!);
-            await File.WriteAllTextAsync(path, file.Content, cancellationToken);
+            await fileUtil.Write(path, file.Content, cancellationToken: cancellationToken);
         }
         logger.LogInformation("Generated {Count} source files", files.Count);
-        await File.WriteAllTextAsync(Path.Combine(repository, "graphql.schema"), sdl, cancellationToken);
+        await fileUtil.Write(Path.Combine(repository, "graphql.schema"), sdl, cancellationToken: cancellationToken);
 
         await dotnetUtil.Restore(project, cancellationToken: cancellationToken);
         if (!await dotnetUtil.Build(project, true, "Release", false, cancellationToken: cancellationToken))
