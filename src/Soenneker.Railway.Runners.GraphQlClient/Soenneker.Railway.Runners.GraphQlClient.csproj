@@ -24,19 +24,19 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Soenneker.Extensions.LoggerConfiguration" Version="4.0.1394" />
+        <PackageReference Include="Soenneker.Extensions.LoggerConfiguration" Version="4.0.1399" />
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.12" />
         <PackageReference Include="Soenneker.GraphQL.Generator" Version="4.0.145" />
-        <PackageReference Include="Soenneker.GraphQl.Schema.Conversion" Version="4.0.65" />
-        <PackageReference Include="Soenneker.GraphQl.Schema.Download" Version="4.0.118" />
-        <PackageReference Include="Soenneker.Managers.Runners" Version="4.0.2546" />
-        <PackageReference Include="Soenneker.Utils.File.Download" Version="4.0.1773" />
+        <PackageReference Include="Soenneker.GraphQl.Schema.Conversion" Version="4.0.67" />
+        <PackageReference Include="Soenneker.GraphQl.Schema.Download" Version="4.0.120" />
+        <PackageReference Include="Soenneker.Managers.Runners" Version="4.0.2550" />
+        <PackageReference Include="Soenneker.Utils.File.Download" Version="4.0.1775" />
     </ItemGroup>
     <ItemGroup>
         <InternalsVisibleTo Include="Soenneker.Railway.Runners.GraphQlClient.Tests" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Soenneker.Enums.DeployEnvironment" Version="4.0.242" />
+        <PackageReference Include="Soenneker.Enums.DeployEnvironment" Version="4.0.244" />
     </ItemGroup>
 </Project>
 
