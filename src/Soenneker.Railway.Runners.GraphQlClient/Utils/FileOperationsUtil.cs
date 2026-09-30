@@ -92,7 +92,7 @@ public sealed class FileOperationsUtil(
             logger.LogInformation("Regenerated Railway client in {Repository}", repository);
             return;
         }
-        await gitUtil.CommitAndPush(repository, "Regenerate Railway GraphQL client",
+        await gitUtil.CommitAndPush(repository, await gitUtil.GetUpdateCommitMessage(repository, "Regenerate Railway GraphQL client", cancellationToken),
             EnvironmentUtil.GetVariableStrict("GH__TOKEN"), EnvironmentUtil.GetVariableStrict("GIT__NAME"),
             EnvironmentUtil.GetVariableStrict("GIT__EMAIL"), cancellationToken);
     }
