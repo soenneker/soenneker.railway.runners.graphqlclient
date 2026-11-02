@@ -36,8 +36,5 @@
     <ItemGroup>
         <InternalsVisibleTo Include="Soenneker.Railway.Runners.GraphQlClient.Tests" />
     </ItemGroup>
-    <ItemGroup>
-        <PackageReference Include="Soenneker.Enums.DeployEnvironment" Version="11.0.262" />
-    </ItemGroup>
 </Project>
 
