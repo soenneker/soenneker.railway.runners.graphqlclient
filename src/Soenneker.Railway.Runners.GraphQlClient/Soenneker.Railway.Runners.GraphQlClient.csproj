@@ -29,7 +29,7 @@
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="11.0.0-rc.3.26522.148" />
         <PackageReference Include="Soenneker.GraphQL.Generator" Version="11.0.187" />
         <PackageReference Include="Soenneker.GraphQl.Schema.Conversion" Version="11.0.90" />
-        <PackageReference Include="Soenneker.GraphQl.Schema.Download" Version="11.0.169" />
+        <PackageReference Include="Soenneker.GraphQl.Schema.Download" Version="11.0.170" />
         <PackageReference Include="Soenneker.Managers.Runners" Version="11.0.2679" />
         <PackageReference Include="Soenneker.Utils.File.Download" Version="11.0.1836" />
     </ItemGroup>
