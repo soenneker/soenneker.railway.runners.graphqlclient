@@ -27,7 +27,7 @@
     <ItemGroup>
         <PackageReference Include="Soenneker.Extensions.LoggerConfiguration" Version="11.0.1464" />
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="11.0.0" />
-        <PackageReference Include="Soenneker.GraphQL.Generator" Version="11.0.200" />
+        <PackageReference Include="Soenneker.GraphQL.Generator" Version="11.0.201" />
         <PackageReference Include="Soenneker.GraphQl.Schema.Conversion" Version="11.0.98" />
         <PackageReference Include="Soenneker.GraphQl.Schema.Download" Version="11.0.182" />
         <PackageReference Include="Soenneker.Managers.Runners" Version="11.0.2719" />
