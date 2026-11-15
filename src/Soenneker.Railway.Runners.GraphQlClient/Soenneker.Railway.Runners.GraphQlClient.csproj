@@ -25,13 +25,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Soenneker.Extensions.LoggerConfiguration" Version="11.0.1466" />
+        <PackageReference Include="Soenneker.Extensions.LoggerConfiguration" Version="11.0.1467" />
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="11.0.0" />
         <PackageReference Include="Soenneker.GraphQL.Generator" Version="11.0.202" />
         <PackageReference Include="Soenneker.GraphQl.Schema.Conversion" Version="11.0.99" />
-        <PackageReference Include="Soenneker.GraphQl.Schema.Download" Version="11.0.186" />
-        <PackageReference Include="Soenneker.Managers.Runners" Version="11.0.2727" />
-        <PackageReference Include="Soenneker.Utils.File.Download" Version="11.0.1857" />
+        <PackageReference Include="Soenneker.GraphQl.Schema.Download" Version="11.0.187" />
+        <PackageReference Include="Soenneker.Managers.Runners" Version="11.0.2728" />
+        <PackageReference Include="Soenneker.Utils.File.Download" Version="11.0.1858" />
     </ItemGroup>
     <ItemGroup>
         <InternalsVisibleTo Include="Soenneker.Railway.Runners.GraphQlClient.Tests" />
