@@ -30,7 +30,7 @@
         <PackageReference Include="Soenneker.GraphQL.Generator" Version="11.0.202" />
         <PackageReference Include="Soenneker.GraphQl.Schema.Conversion" Version="11.0.99" />
         <PackageReference Include="Soenneker.GraphQl.Schema.Download" Version="11.0.187" />
-        <PackageReference Include="Soenneker.Managers.Runners" Version="11.0.2732" />
+        <PackageReference Include="Soenneker.Managers.Runners" Version="11.0.2733" />
         <PackageReference Include="Soenneker.Utils.File.Download" Version="11.0.1858" />
     </ItemGroup>
     <ItemGroup>
